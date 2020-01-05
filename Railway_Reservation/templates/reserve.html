@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <span class="navbar-brand mb-0 h1">Railway Reservation System</span>
+      <a class="nav-link" href="http://127.0.0.1:8080/reservation/"
+        >Home <span class="sr-only">(current)</span></a
+      >
+    </nav>
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <form id="railway">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm col-8"
+                  id="name"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm col-8"
+                  id="phone"
+                />
+              </div>
+              <div class="form-group">
+                <label for="aadhar">Aadhar Number</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm col-8"
+                  id="aadhar"
+                />
+              </div>
+              <div class="form-group">
+                <label for="from">From</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm col-8"
+                  id="from"
+                />
+              </div>
+              <div class="form-group">
+                <label for="to">To</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm col-8"
+                  id="to"
+                />
+              </div>
+              <div class="form-group">
+                <label for="train">Train</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm col-8"
+                  id="train"
+                />
+              </div>
+              Date: <input type="date" name="bday" id="date" /><br />
+              <button
+                type="submit"
+                class="btn btn-primary"
+                style="margin-top: 2em"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+          <div class="col border border-dark  ">
+            <h4 style="text-align: center;">Check Your Details</h4>
+            <p><b>Your name:</b></p>
+            <p id="name1"></p>
+            <p>Phone Number:</p>
+            <p id="phone1"></p>
+            <p>Aadhar number:</p>
+            <p id="aadhar1"></p>
+            <p>From:</p>
+            <p id="from1"></p>
+            <p>To:</p>
+            <p id="to1"></p>
+            <p>Date:</p>
+            <p id="date1"></p>
+            <p>Train:</p>
+            <p id="train1"></p>
+            <button
+              type="button"
+              class="btn btn-success"
+              onclick="myFunction()"
+            >
+              Confirm Ticket
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="footer"
+      style=" position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(128, 137, 150);
+    color: white;
+    text-align: center;"
+    >
+      <p>Footer</p>
+    </div>
+  </body>
+  <script>
+    $(function() {
+      $("#railway").submit(function(e) {
+        e.preventDefault();
+
+        var name = $("#name").val();
+        var phone = $("#phone").val();
+        var aadhar = $("#aadhar").val();
+        var from = $("#from").val();
+        var to = $("#to").val();
+        var date = $("#date").val();
+        var train = $("#train").val();
+
+        $("#name1").html(name);
+        $("#phone1").html(phone);
+        $("#aadhar1").html(aadhar);
+        $("#from1").html(from);
+        $("#to1").html(to);
+        $("#date1").html(date);
+        $("#train1").html(train);
+      });
+    });
+  </script>
+
+  <script>
+    function myFunction() {
+      location.replace("http://127.0.0.1:8080/reservation/display");
+    }
+  </script>
+</html>
