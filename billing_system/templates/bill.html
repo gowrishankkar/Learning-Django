@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous"
+/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+
+<link rel="stylesheet" href="/static/style.css" />
+  <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1"
+          ><a class="nav-link" href="http://127.0.0.1:8000/billing/"
+            >Canteen Billing System <span class="sr-only">(current)</span></a
+          ></span
+        >
+      </nav>
+  
+      <div class="container">
+        <form id="billing" method="GET">{% csrf_token %}
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label >Product ID</label>
+                <input
+                  type="number"
+                  class="form-control  col-8"
+                  
+                  name="productid"
+                  style="margin-left: 90px;"
+                />
+              </div>
+  
+              <div class="form-group">
+                <label for="aadhar">Number of Products </label>
+                <input
+                  type="number"
+                  class="form-control form-control-sm col-8"
+                  id="noproduct"
+                  style="margin-left: 90px;"
+                  name="number"
+                />
+              </div>
+            </div>
+            <div class="col  ">
+              <div class="form-group">
+                <label for="phone">Product Name</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm col-8"
+                  id="productname"
+                  style="margin-left: 90px;"
+                  name="name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="from"> Price</label>
+                <input
+                  type="number"
+                  class="form-control form-control-sm col-8"
+                  id="price"
+                  style="margin-left: 90px;"
+                  name="price"
+                />
+              </div>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="margin-top: 2em"
+            id="submit" name="submit"
+          >
+            Submit
+          </button>
+        </form>
+        <table class="table table-dark" id="invoice" style="margin-top: 25px;">
+          <thead>
+            <tr>
+
+              <th scope="col">Product ID</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Number of Products</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+
+          {% for i in objlist %}
+          <div class="user_pod">
+              <tr>
+
+            <td>{{i.0}}</td>
+            <td>{{i.1}}</td>
+            <td>{{i.2}}</td>
+            <td>{{i.3}}</td>
+          
+          </tr>
+           </div>
+
+          {% endfor %}
+            
+        </table>
+        
+        <a
+          href=#
+          class="btn btn-success "
+          role="button"
+          >total : {{total}}</a
+        >
+        <br>
+        <br>
+        <a
+          href="http://127.0.0.1:8000/billing/payment"
+          class="btn btn-success "
+          role="button"
+          >Payment</a
+        >
+
+      </div>
+
+</body>
+
+
+</html>
